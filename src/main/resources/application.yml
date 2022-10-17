@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/ada?createDatabaseIfNotExist=true&serverTimezone=UTC
+    password: igorms20@MYSQL
+   
+  jpa:
+#    defer-datasource-initialization: true
+    show-sql: true
+    
+#  flyway:
+#    baseline-on-migrate: true
+    
+    
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+    
+server:
+  error:
+    include-stacktrace: on-param
