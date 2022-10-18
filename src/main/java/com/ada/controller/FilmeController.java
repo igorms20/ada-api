@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ada.dto.FilmeDto;
 import com.ada.exception.MovieNotFoundException;
 import com.ada.model.Filme;
 import com.ada.repository.FilmeRepository;
@@ -41,15 +42,15 @@ public class FilmeController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Filme> saveMovie(@RequestBody Filme filme) {
+	public ResponseEntity<Filme> saveMovie(@RequestBody FilmeDto filmeDto) {
 
-		return new ResponseEntity<Filme>(filmeService.save(filme), HttpStatus.CREATED);
+		return new ResponseEntity<Filme>(filmeService.save(filmeDto.convertToObject()), HttpStatus.CREATED);
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Filme> updateMovie(@PathVariable Long id, @RequestBody Filme filme) {
+	public ResponseEntity<Filme> updateMovie(@PathVariable Long id, @RequestBody FilmeDto filmeDto) {
 
-		return new ResponseEntity<Filme>(filmeService.update(id, filme), HttpStatus.ACCEPTED);
+		return new ResponseEntity<Filme>(filmeService.update(id, filmeDto.convertToObject()), HttpStatus.ACCEPTED);
 	}
 
 }

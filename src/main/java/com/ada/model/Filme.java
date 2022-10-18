@@ -22,6 +22,11 @@ public class Filme {
 	private Long id;
 	private String nome;
 	private String descricao;
+	
+	public Filme(String nome, String descricao) {
+		this.nome = nome;
+		this.descricao = descricao;
+	}	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -39,5 +44,9 @@ public class Filme {
 	public int hashCode() {
 		return Objects.hash(nome);
 	}
+
+
+
+	
 
 }
