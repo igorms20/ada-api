@@ -13,13 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ada.dto.FilmeDto;
-import com.ada.exception.MovieNotFoundException;
 import com.ada.model.Filme;
-import com.ada.repository.FilmeRepository;
 import com.ada.service.FilmeService;
 
-import io.swagger.annotations.SwaggerDefinition;
-import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 
 @RestController

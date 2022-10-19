@@ -16,7 +16,10 @@ public class FilmeDto {
 	}
 
 	public Filme convertToObject() {
-		return new Filme(nome, descricao);
+		return Filme.builder()
+				.nome(nome)
+				.descricao(descricao)
+				.build();
 	}
 
 }

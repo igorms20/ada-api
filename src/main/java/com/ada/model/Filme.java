@@ -8,12 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 public class Filme {
 
@@ -22,11 +24,6 @@ public class Filme {
 	private Long id;
 	private String nome;
 	private String descricao;
-	
-	public Filme(String nome, String descricao) {
-		this.nome = nome;
-		this.descricao = descricao;
-	}	
 
 	@Override
 	public boolean equals(Object obj) {
