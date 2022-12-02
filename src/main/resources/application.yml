@@ -20,3 +20,4 @@ spring:
 server:
   error:
     include-stacktrace: on-param
+

@@ -7,5 +7,4 @@ import com.ada.model.Filme;
 
 @Repository
 public interface FilmeRepository extends JpaRepository<Filme, Long> {
-
 }

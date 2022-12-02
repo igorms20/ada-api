@@ -2,6 +2,8 @@ package com.ada.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,30 +25,30 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/filmes")
 public class FilmeController {
 
-	private final FilmeService filmeService;
+    private final FilmeService filmeService;
 
-	@GetMapping
-	public ResponseEntity<List<Filme>> getAllMovies() {
+    @GetMapping
+    public ResponseEntity<List<Filme>> getAllMovies() {
 
-		return new ResponseEntity<List<Filme>>(filmeService.getAll(), HttpStatus.OK);
-	}
+        return new ResponseEntity<>(filmeService.getAll(), HttpStatus.OK);
+    }
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Filme> getMovieById(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Filme> getMovieById(@PathVariable Long id) {
 
-		return new ResponseEntity<Filme>(filmeService.getById(id), HttpStatus.OK);
-	}
+        return new ResponseEntity<>(filmeService.getById(id), HttpStatus.OK);
+    }
 
-	@PostMapping
-	public ResponseEntity<Filme> saveMovie(@RequestBody FilmeDto filmeDto) {
+    @PostMapping
+    public ResponseEntity<Filme> saveMovie(@Valid @RequestBody FilmeDto filmeDto) {
 
-		return new ResponseEntity<Filme>(filmeService.save(filmeDto.convertToObject()), HttpStatus.CREATED);
-	}
+        return new ResponseEntity<>(filmeService.save(filmeDto.convertToObject()), HttpStatus.CREATED);
+    }
 
-	@PutMapping("/{id}")
-	public ResponseEntity<Filme> updateMovie(@PathVariable Long id, @RequestBody FilmeDto filmeDto) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Filme> updateMovie(@PathVariable Long id, @Valid @RequestBody FilmeDto filmeDto) {
 
-		return new ResponseEntity<Filme>(filmeService.update(id, filmeDto.convertToObject()), HttpStatus.ACCEPTED);
-	}
+        return new ResponseEntity<>(filmeService.update(id, filmeDto.convertToObject()), HttpStatus.ACCEPTED);
+    }
 
 }
